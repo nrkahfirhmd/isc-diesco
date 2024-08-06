@@ -1,0 +1,141 @@
+.bg {
+    background-image: url('/images/login.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 5em;
+}
+
+nav .logo img {
+    width: 12em;
+}
+
+nav {
+    padding: 1em 0;
+    display: flex;
+    justify-content: end;
+}
+
+main {
+    margin: 3.5em 0;
+}
+
+.login-wrapper {
+    display: flex;
+    gap: 10em;
+    align-items: center;
+}
+
+.couch-wrapper {
+    margin: 0 0 0 -15em;
+}
+
+.couch-wrapper img {
+    width: 65em;
+}
+
+.greetings h1 {
+    font-weight: 600;
+    font-size: 52px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 35em;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.input-wrapper input {
+    background-color: transparent;
+    padding: 1.25em 1em;
+    outline: none;
+    border: 1px solid var(--quaternary-color);
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.form-wrapper button {
+    padding: 1.25em 1em;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid var(--secondary-color);
+}
+
+.form-wrapper button:hover {
+    background-color: var(--primer-color);
+    color: var(--secondary-color);
+}
+
+.form-wrapper button:hover .door {
+    fill: var(--secondary-color);
+}
+
+.into-register {
+    display: flex;
+    flex-direction: column;
+    height: 16em;
+    justify-content: end;
+    gap: 1em;
+}
+
+.into-register button {
+    padding: 1.25em 1em;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 1px solid var(--secondary-color);
+    cursor: pointer;
+}
+
+.into-register button:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.into-register button:hover .person {
+    fill: var(--primary-color);
+}
+
+.belum {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75em;
+}
+
+.line {
+    width: 30%;
+    height: 1px;
+    background-color: var(--quaternary-color);
+}
+
+.belum p {
+    color: var(--quaternary-color);
+    width: 30%;
+    text-align: center;
+}
