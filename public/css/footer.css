@@ -52,3 +52,9 @@
     display: flex;
     gap: 1em;
 }
+
+@media screen and (max-width: 768px) {
+    .footer {
+        display: none;
+    }
+}
