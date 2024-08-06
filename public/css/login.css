@@ -139,3 +139,56 @@ main {
     width: 30%;
     text-align: center;
 }
+
+@media screen and (max-width: 768px) {
+    .bg {
+        padding: 0 2em;
+    }
+
+    .login-wrapper {
+        flex-direction: column;
+        gap: 2em;
+        width: 100%;
+        align-items: normal;
+    }
+
+    .couch-wrapper img {
+        display: none;
+    }
+
+    .greetings h1 {
+        font-size: 36px;
+    }
+
+    .login-form {
+        width: 100%;
+    }
+
+    .input-wrapper input {
+        padding: 1em 1em;
+    }
+
+    .form-wrapper button {
+        padding: 1em 1em;
+    }
+
+    .into-register {
+        height: 10em;
+    }
+
+    .into-register button {
+        padding: 1em 1em;
+    }
+
+    .belum {
+        gap: 0.5em;
+    }
+
+    .line {
+        width: 20%;
+    }
+
+    .belum p {
+        width: 50%;
+    }
+}
