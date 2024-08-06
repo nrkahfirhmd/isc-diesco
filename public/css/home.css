@@ -1,0 +1,108 @@
+/* Bagian Navbar */
+.navbar {
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--secondary-color);
+}
+
+.logo img {
+    width: 18em;
+}
+
+.navbar .nav-items {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar .links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .sign-up {
+    background: var(--secondary-color);
+    border: solid var(--secondary-color) 1px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 6px 29px;
+    border-radius: 11px;
+}
+
+.navbar .sign-in {
+    background: white;
+    border: solid var(--secondary-color) 1px;
+    color: var(--secondary-color);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 6px 29px;
+    border-radius: 11px;
+}
+
+
+/* Bagian Search */
+.hero {
+    background-image: url('/images/hero.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 100%;
+    border-radius: 60px;
+    margin-bottom: 54px;
+}
+
+
+/* Bagian Card-list */
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 25px;
+    overflow: hidden;
+    width: 200px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.card-content p {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+}
