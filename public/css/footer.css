@@ -1,0 +1,54 @@
+.viewport {
+    max-width: 100%;
+    padding: 0 5em;
+}
+
+.footer {
+    width: 100%;
+    height: 19.313em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.copyright {
+    color: var(--quaternary-color);
+}
+
+.logo img {
+    width: 18em;
+}
+
+.address {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.center {
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+}
+
+.socmed {
+    display: flex;
+    justify-content: end;
+    gap: 0.5em;
+}
+
+.tnc {
+    display: flex;
+    gap: 1em;
+}
