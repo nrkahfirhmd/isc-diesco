@@ -20,22 +20,30 @@ main {
 
 .level-wrapper {
     display: flex;
-    gap: 2em;
+    gap: 5%;
 }
 
 .register-wrapper {
     display: flex;
-    gap: 10em;
+    gap: 10%;
     align-items: center;
     flex-direction: row-reverse;
+    width: 100%;
 }
 
 .couch-wrapper {
     margin: 0 -5em 0 0;
 }
 
+.content-wrapper {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
 .couch-wrapper img {
-    width: 65em;
+    width: 100%;
 }
 
 .greetings h1 {
@@ -47,7 +55,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 2em;
-    width: 35em;
+    width: 90%;
 }
 
 .input-wrapper {
@@ -70,7 +78,7 @@ main {
 }
 
 .code-wrapper {
-    display: flex;
+    display: flex;  
     max-width: 100%;
     gap: 0.75em;
     justify-content: center;
@@ -78,11 +86,11 @@ main {
 }
 
 .code-wrapper input {
-    font-size: 96px;
+    font-size: calc(2vw + 2vh);
     display: flex;
-    width: 4rem;
-    height: 5rem;
-    padding: 0.25em;
+    width: 25%;
+    aspect-ratio: 1 / 1;
+    padding: 1%;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
@@ -249,6 +257,10 @@ main {
     }
 
     .code-wrapper {
+        width: 100%;
+    }
+
+    .content-wrapper {
         width: 100%;
     }
 

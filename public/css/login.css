@@ -23,6 +23,12 @@ main {
     display: flex;
     gap: 10em;
     align-items: center;
+    width: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    width: 50%;
 }
 
 .couch-wrapper {
@@ -30,7 +36,7 @@ main {
 }
 
 .couch-wrapper img {
-    width: 65em;
+    width: 100%;
 }
 
 .greetings h1 {
@@ -42,7 +48,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 2em;
-    width: 35em;
+    width: 80%;
 }
 
 .input-wrapper {
@@ -68,6 +74,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 2em;
+    width: 100%;
 }
 
 .form-wrapper button {
@@ -162,6 +169,10 @@ main {
 
     .greetings h1 {
         font-size: 36px;
+    }
+
+    .content-wrapper {
+        width: 100%;
     }
 
     .login-form {

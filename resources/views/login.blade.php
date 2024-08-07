@@ -15,7 +15,7 @@
             <div class="couch-wrapper">
                 <img src="/images/login_couch.png" alt="couch">
             </div>
-            <div>
+            <div class="content-wrapper">
                 <form action="post" class="login-form">
                     <div class="greetings">
                         <h1>Masuk</h1>

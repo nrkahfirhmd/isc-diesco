@@ -15,7 +15,7 @@
             <div class="couch-wrapper">
                 <img src="/images/register_couch.png" alt="couch">
             </div>
-            <div>
+            <div class="content-wrapper">
                 <form action="post" class="register-form">
                     <div class="greetings">
                         <h1>Daftar</h1>
@@ -63,7 +63,7 @@
                 </form>
             </div>
 
-            <!-- <div>
+            <!-- <div class="content-wrapper">
                 <form action="post" class="register-form">
                     <div class="greetings">
                         <h1>Enter Code</h1>
