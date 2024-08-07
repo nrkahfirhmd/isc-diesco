@@ -62,10 +62,11 @@
     border-radius: 60px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     color: var(--primary-color);
     text-align: center;
+    padding: 20px;
 }
 
 .hero-logo {
@@ -77,24 +78,38 @@
 
 .hero-content {
     max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.tagline {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .hero h1 {
-    font-size: 36px;
+    font-size: 48px;
 }
 
 .hero h1 .highlight {
     font-family: dynalight;
-    font-size: 48px;
+    font-size: 60px;
 }
 
 .hero p {
+    font-size: 24px;
     padding: 10px;
 }
 
 .search {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 40px;
     gap: 30px;
 }
@@ -103,20 +118,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    width: 70%;
+}
+
+.search-icon {
+    position: absolute;
+    top: 3px;
+    left: 15px;
+    width: 70px;
 }
 
 .search-bar input {
     width: 70%;
-    padding: 10px;
+    padding: 20px 20px 20px 50px;
     border: none;
-    border-radius: 20px 0 0 20px;
+    border-radius: 100px 0 0 100px;
     outline: none;
 }
 
 .search-bar button {
-    padding: 10px 20px;
+    padding: 20px 30px;
     border: none;
-    background-color: #4C3BCF;
+    background-color: var(--secondary-color);
     color: var(--primary-color);
     border-radius: 0 20px 20px 0;
     cursor: pointer;
@@ -136,7 +160,7 @@
     margin-right: 10px;
     padding: 5px 10px;
     border: 1px solid var(--primary-color);
-    border-radius: 5px;
+    border-radius: 27px;
     transition: background-color 0.3s ease;
 }
 
