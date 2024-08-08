@@ -14,3 +14,7 @@
     font-style: normal;
     font-weight: 400;
 }
+
+body {
+    padding: 0 5em;
+}
