@@ -1,0 +1,164 @@
+/* Tombol Kembali */
+.back {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back .the-text {
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
+
+/* Pembungkos konten */
+.ask-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Pembungkus gambar */
+.couch-wrapper {
+    flex: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.couch-wrapper img {
+    max-width: 100%;
+}
+
+/* Pembungkus form dan detail */
+.content-wrapper {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.preview-section {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.preview-image {
+    flex: 0 0 60%;
+    position: relative;
+    align-items: center;
+}
+
+.preview-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.preview-detail {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    position: sticky;
+    top: 50px;
+    height: 100%;
+}
+
+.preview-detail .product {
+    display: flex;
+    width: 100%;
+    gap: 1em;
+    padding: 0.5em;
+    border-radius: 50px;
+    border: 1px solid black;
+    flex-direction: column;
+}
+
+.product .pricing {
+    display: flex;
+    flex-direction: column;
+    padding: 0 3em;
+    gap: 0.25em;
+}
+
+.product .pricing p, .product .pricing .discount {
+    font-size: 16px;
+}
+
+.product .pricing .price {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.product .benefit {
+    display: flex;
+    gap: 0.75em;
+    align-items: center;
+    padding: 0 3em;
+    font-weight: 600;
+}
+
+.product .benefit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+    padding: 0 3em;
+}
+
+.product .benefit-list .ben-li {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    color: var(--quaternary-color);
+    font-weight: 500;
+}
+
+.ask-form .title {
+    display: flex;
+    gap: 0.5em;
+}
+
+.ask-form .title h1 {
+    font-size: 1.5rem;
+    color: #2F2F2F;
+    margin-bottom: 10px;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-wrapper textarea {
+    width: 110%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #2F2F2F;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.form-wrapper button {
+    padding: 1.25em 1em;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid var(--secondary-color);
+    width: 113%;
+}
