@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('no_telp');
-            $table->binary('photo');
+            $table->mediumText('photo');
         });
     }
 };

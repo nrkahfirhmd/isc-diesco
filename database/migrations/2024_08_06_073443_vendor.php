@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('email')->unique();
             $table->string('no_telp')->unique();
-            $table->binary('photo');
+            $table->mediumText('photo');
             $table->text('deskripsi');
             $table->boolean('pro');
             $table->float('rating');
