@@ -10,34 +10,46 @@
         </div>
     </nav>
 
+    <div class="wrapper-alert">
+        <div class="otp-alert">
+            Kode OTP Anda <span style="font-weight: 600">{{session('otp')}}</span> 
+        </div>
+    </div>
+
     <main>
         <div class="register-wrapper">
             <div class="couch-wrapper">
                 <img src="/images/register_couch.png" alt="couch">
             </div>
+            @if(session('step') != 1)
             <div class="content-wrapper">
-                <form action="post" class="register-form">
+            @else
+            <div class="content-wrapper current">
+            @endif
+            <!-- <div class="content-wrapper current"> -->
+                <form action="/auth/register" class="register-form">
+                    @csrf
                     <div class="greetings">
                         <h1>Daftar</h1>
                         <p>Gabung menjadi bagian dari kami</p>
                     </div>
                     <div class="form-wrapper">
                         <div class="input-wrapper">
-                            <input type="text" name="nama" id="nama" required autocomplete="off" placeholder="Nama">
+                            <input type="text" name="username" id="username" required autocomplete="off" placeholder="Username">
                             <input type="email" name="email" id="email" required autocomplete="off" placeholder="Email">
-                            <input type="text" inputmode="numeric" name="telp" id="telp" required placeholder="Nomor Telepon">
+                            <input type="text" inputmode="numeric" name="telp" id="telp" required autocomplete="off" placeholder="Nomor Telepon">
                             <div class="level-wrapper">
                                 <span>
-                                    <input type="radio" name="level" id="vendor">
+                                    <input type="radio" name="level" id="vendor" value="1">
                                     <label for="vendor">Sebagai Vendor</label>
                                 </span>
                                 <span>
-                                    <input type="radio" name="level" id="user" checked>
+                                    <input type="radio" name="level" id="user" value="0" checked>
                                     <label for="user">Sebagai User</label>
                                 </span>
                             </div>
                         </div>
-                        <button type="submit">
+                        <button onclick="toNextSection()">
                             Kirim Kode OTP
                         </button>
                     </div>
@@ -59,22 +71,29 @@
                     <div class="status-wrapper">
                         <div class="status on"></div>
                         <div class="status"></div>
+                        <div class="status"></div>
                     </div>
                 </form>
             </div>
 
-            <!-- <div class="content-wrapper">
-                <form action="post" class="register-form">
+            @if(session('step') === 2)
+            <div class="content-wrapper current">
+            @else
+            <div class="content-wrapper">
+            @endif
+            <!-- <div class="content-wrapper"> -->
+                <form action="/auth/otp" class="register-form">
+                    @csrf
                     <div class="greetings">
                         <h1>Enter Code</h1>
                         <p>kami sudah mengirim kode ke <span class="user-email">johndoe@gmail.com</span></p>
                     </div>
                     <div class="form-wrapper">
                         <div class="code-wrapper">
-                            <input type="text" class="inputted" inputmode="numeric" name="otp" id="one" placeholder="0">
-                            <input type="text" inputmode="numeric" name="otp" id="two" placeholder="0">
-                            <input type="text" inputmode="numeric" name="otp" id="three" placeholder="0">
-                            <input type="text" inputmode="numeric" name="otp" id="four" placeholder="0">
+                            <input type="text" class="inputted" inputmode="numeric" name="otp[]" id="one" oninput="moveToNext(this)" autocomplete="off" maxlength="1" placeholder="0">
+                            <input type="text" inputmode="numeric" name="otp[]" id="two" oninput="moveToNext(this)" autocomplete="off" maxlength="1" placeholder="0">
+                            <input type="text" inputmode="numeric" name="otp[]" id="three" oninput="moveToNext(this)" autocomplete="off" maxlength="1" placeholder="0">
+                            <input type="text" inputmode="numeric" name="otp[]" id="four" oninput="moveToNext(this)" autocomplete="off" maxlength="1" placeholder="0">
                         </div>
                         <button type="submit">
                             Daftar
@@ -92,11 +111,55 @@
                     <div class="status-wrapper">
                         <div class="status"></div>
                         <div class="status on"></div>
+                        <div class="status"></div>
                     </div>
                 </form>
-            </div> -->
+            </div>
+
+            @if(session('step') === 3)
+            <div class="content-wrapper current">
+            @else
+            <div class="content-wrapper">
+            @endif
+            <!-- <div class="content-wrapper"> -->
+                <form action="/auth/password" class="register-form">
+                    @csrf
+                    <div class="greetings">
+                        <h1>Input Password</h1>
+                        <p>Demi keamanan dan kenyamanan</p>
+                    </div>
+                    <div class="form-wrapper">
+                        <div class="input-wrapper">
+                            <input type="password" name="password" id="password" required autocomplete="off" placeholder="Password">
+                            <input type="password" name="retype" id="retype" required autocomplete="off" placeholder="Re-type Password">
+                        </div>
+                        <button type="submit">
+                            Simpan Password
+                        </button>
+                    </div>
+                    <div class="status-wrapper">
+                        <div class="status"></div>
+                        <div class="status"></div>
+                        <div class="status on"></div>
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
+
+    <script src="{{ asset('js/register.js') }}"></script>
+    <script type="text/javascript">
+        @if (session('otp-alert'))
+            alert("Your OTP is {{ session('otp') }}").then(() => {
+                {{ session()->forget('otp-alert') }}
+            });
+        @endif
+
+        $(document).ready(function () {
+            let currentStep = {{ session('step') ?? 1 }};
+            toNextSection(currentStep);
+        });
+    </script>
 </body>
 
 @include('layouts.footer')

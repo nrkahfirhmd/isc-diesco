@@ -16,14 +16,15 @@
                 <img src="/images/login_couch.png" alt="couch">
             </div>
             <div class="content-wrapper">
-                <form action="post" class="login-form">
+                <form action="/auth/login" class="login-form">
+                    @csrf
                     <div class="greetings">
                         <h1>Masuk</h1>
                         <p>Selamat Datang Kembali!</p>
                     </div>
                     <div class="form-wrapper">
                         <div class="input-wrapper">
-                            <input type="email" name="email" id="email" required autocomplete="off" placeholder="Masukkan Email Anda">
+                            <input type="text" name="username" id="username" required autocomplete="off" placeholder="Masukkan Username Anda">
                             <input type="password" name="password" id="password" required placeholder="Masukkan Password Anda">
                         </div>
                         <button type="submit">
