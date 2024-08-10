@@ -1,19 +1,17 @@
 /* Tombol kembali */
 .back {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.back .the-text {
     font-weight: 600;
     font-size: 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 0.5em;
+    text-decoration: none;
+    color: black;
 }
 
+.back:hover {
+    text-decoration: underline;
+}
 
 /* Pembungkus konten */
 .content {
@@ -136,6 +134,7 @@
     flex-direction: column;
     gap: 1em;
     width: 60%;
+    justify-content: center;
 }
 
 .vendor .info .prof-wrapper {
@@ -182,9 +181,9 @@
     text-align: center;
 }
 
-.vendor .ask button {
+.vendor .ask a {
     width: 100%;
-    padding: 0.5em 1em;
+    padding: 0.5em 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -195,6 +194,7 @@
     outline: none;
     border: 1px solid var(--secondary-color);
     border-radius: 50px;
+    text-decoration: none;
 }
 
 .vendor .ask .report {

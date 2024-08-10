@@ -41,14 +41,14 @@
     </nav>
 
     <main>
-        <div class="back">
-            <div class="the-text">
-                <svg width="23" height="18" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.75 0.749999L10.675 2.74375L5.79375 7.625L22.5 7.625L22.5 10.375L5.79375 10.375L10.675 15.2562L8.75 17.25L0.500001 9L8.75 0.749999Z" fill="#2F2F2F" />
-                </svg>
-                Kembali
-            </div>
-        </div>
+        <a href="/detail/{{ $product->id_product }}" class="back">
+            <svg width="23" height="18" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M8.75 0.749999L10.675 2.74375L5.79375 7.625L22.5 7.625L22.5 10.375L5.79375 10.375L10.675 15.2562L8.75 17.25L0.500001 9L8.75 0.749999Z"
+                    fill="#2F2F2F" />
+            </svg>
+            Kembali
+        </a>
         <div class="content">
             <div class="form-wrapper">
                 <form action="/request/process/{{ $product->id_product }}" class="register-form">
@@ -121,12 +121,14 @@
                             Hubungi vendor dengan jaminan dibalas 1x24 Jam
                         </div>
                         <div class="ask">
-                            <button>
+                            <a href="/ask/{{ $product->id_product }}">
                                 Tanya vendor
                                 <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5.125 13.125H13.625V11H5.125V13.125ZM5.125 9.9375H17.875V7.8125H5.125V9.9375ZM5.125 6.75H17.875V4.625H5.125V6.75ZM0.875 21.625V2.5C0.875 1.91562 1.08307 1.41536 1.49922 0.999219C1.91536 0.583073 2.41562 0.375 3 0.375H20C20.5844 0.375 21.0846 0.583073 21.5008 0.999219C21.9169 1.41536 22.125 1.91562 22.125 2.5V15.25C22.125 15.8344 21.9169 16.3346 21.5008 16.7508C21.0846 17.1669 20.5844 17.375 20 17.375H5.125L0.875 21.625ZM4.22188 15.25H20V2.5H3V16.4453L4.22188 15.25Z" fill="#4C3BCF" />
+                                    <path
+                                        d="M5.125 13.125H13.625V11H5.125V13.125ZM5.125 9.9375H17.875V7.8125H5.125V9.9375ZM5.125 6.75H17.875V4.625H5.125V6.75ZM0.875 21.625V2.5C0.875 1.91562 1.08307 1.41536 1.49922 0.999219C1.91536 0.583073 2.41562 0.375 3 0.375H20C20.5844 0.375 21.0846 0.583073 21.5008 0.999219C21.9169 1.41536 22.125 1.91562 22.125 2.5V15.25C22.125 15.8344 21.9169 16.3346 21.5008 16.7508C21.0846 17.1669 20.5844 17.375 20 17.375H5.125L0.875 21.625ZM4.22188 15.25H20V2.5H3V16.4453L4.22188 15.25Z"
+                                        fill="#4C3BCF" />
                                 </svg>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

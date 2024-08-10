@@ -48,14 +48,14 @@
 
     <main>
         <div class="back">
-            <div class="the-text">
+            <a href="/home" class="the-text">
                 <svg width="23" height="18" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M8.75 0.749999L10.675 2.74375L5.79375 7.625L22.5 7.625L22.5 10.375L5.79375 10.375L10.675 15.2562L8.75 17.25L0.500001 9L8.75 0.749999Z"
                         fill="#2F2F2F" />
                 </svg>
                 Kembali
-            </div>
+            </a>
             <div>
                 Kategori : Kitchen Set
             </div>
@@ -252,7 +252,7 @@
                             Hubungi vendor dengan jaminan dibalas 1x24 Jam
                         </div>
                         <div class="ask">
-                            <a href="/ask">
+                            <a href="/ask/{{ $product->id_product }}">
                                 Tanya vendor
                                 <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path

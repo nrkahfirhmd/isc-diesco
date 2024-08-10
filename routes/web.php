@@ -25,9 +25,9 @@ Route::get('/home', [ProductController::class, 'index']);
 
 Route::get('/detail/{id}', [ProductController::class, 'detail']);
 
-Route::get('/ask', function () {
-    return view('ask');
-});
+Route::get('/ask/{id}', [ProductController::class, 'ask']);
+
+Route::get('/ask/process/{id}', [ProductController::class, 'askProcess']);  
 
 Route::get('/request/{id}', [ProductController::class, 'request']);
 

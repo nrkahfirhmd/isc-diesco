@@ -39,8 +39,6 @@ class ProductController extends Controller
         $deskripsi = $request->input('deskripsi');
         $harga = $request->input('harga');
         $id_req = $this->getRandomID();
-
-        $product = DB::table('product')->where('id_product', $id)->first();
         $cust = DB::table('username')->where('username', session('username'))->first();
 
         DB::table('request')->insert([
@@ -69,5 +67,33 @@ class ProductController extends Controller
         }
 
         return $id;
+    }
+
+    public function ask($id) {
+        $product = DB::table('product')->where('id_product', $id)->first();
+        $vendor = DB::table('vendor')->where('id_vendor', $product->id_vendor)->first();
+
+        return view('ask', ['product' => $product, 'vendor' => $vendor]);
+    }
+
+    public function askProcess(Request $request, $id) {
+        $pertanyaan = $request->input('ask-vendor');
+        $id_ask = $this->getRandomID();
+
+        $product = DB::table('product')->where('id_product', $id)->first();
+        $vendor = DB::table('vendor')->where('id_vendor', $product->id_vendor)->first();
+        $users = DB::table('username')->where('username', session('username'))->first();
+        $cust = DB::table('customer')->where('id_cust', $users->id)->first();
+
+        DB::table('question')->insert([
+            'id_question' => $id_ask,
+            'id_cust' => $cust->id_cust,
+            'id_product' => $id,
+            'id_vendor' => $vendor->id_vendor,
+            'question' => $pertanyaan,
+            'reply' => 'TBA'
+        ]);
+
+        return redirect('/detail/'.$id)->with('success', 'Pertanyaan berhasil dikirim');
     }
 }
