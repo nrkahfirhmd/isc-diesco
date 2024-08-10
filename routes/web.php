@@ -32,3 +32,5 @@ Route::get('/ask/process/{id}', [ProductController::class, 'askProcess']);
 Route::get('/request/{id}', [ProductController::class, 'request']);
 
 Route::get('/request/process/{id}', [ProductController::class, 'requestProcess']);
+
+Route::get('/logout', [UserController::class, 'logout']);

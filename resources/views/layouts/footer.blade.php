@@ -1,5 +1,3 @@
-@include('layouts.header')
-
 <head>
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 </head>

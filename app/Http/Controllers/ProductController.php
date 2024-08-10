@@ -26,6 +26,10 @@ class ProductController extends Controller
 
     public function request($id)
     {
+        if (!session('username')) {
+            return redirect('/login')->with('error', 'Silahkan login terlebih dahulu');
+        }
+
         $product = DB::table('product')->where('id_product', $id)->first();
         $vendor = DB::table('vendor')->where('id_vendor', $product->id_vendor)->first();
 
@@ -70,6 +74,10 @@ class ProductController extends Controller
     }
 
     public function ask($id) {
+        if (!session('username')) {
+            return redirect('/login')->with('error', 'Silahkan login terlebih dahulu');
+        }
+        
         $product = DB::table('product')->where('id_product', $id)->first();
         $vendor = DB::table('vendor')->where('id_vendor', $product->id_vendor)->first();
 

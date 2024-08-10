@@ -9,3 +9,5 @@
 </head>
 
 @include('layouts.alert')
+
+@include('layouts.nav')

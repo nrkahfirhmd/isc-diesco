@@ -4,11 +4,11 @@
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 <body class="bg">
-    <nav>
+    <!-- <nav>
         <div class="logo">
             <img src="{{ asset('images/dekorin.png') }}" alt="dekorin">
         </div>
-    </nav>
+    </nav> -->
 
     <main>
         <div class="login-wrapper">

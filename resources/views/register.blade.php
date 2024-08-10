@@ -4,17 +4,11 @@
     <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 </head>
 <body class="bg">
-    <nav>
+    <!-- <nav>
         <div class="logo">
             <img src="{{ asset('images/dekorin.png') }}" alt="dekorin">
         </div>
-    </nav>
-
-    <div class="wrapper-alert">
-        <div class="otp-alert">
-            Kode OTP Anda <span style="font-weight: 600">{{session('otp')}}</span> 
-        </div>
-    </div>
+    </nav> -->
 
     <main>
         <div class="register-wrapper">

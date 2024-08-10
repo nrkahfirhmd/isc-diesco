@@ -5,25 +5,6 @@
 </head>
 
 <body>  
-    <nav class="navbar">
-        <a href="" class="logo">
-            <img src="/images/dekorin.png" alt="Dekorin">
-        </a>
-        <div class="nav-items">
-            <div class="links">
-                <a href="">Tentang kami</a>
-                <a href="">Layanan</a>
-                <a href="">Bantuan</a>
-            </div>
-            <a href="/register">
-                <button class="sign-in">Daftar</button>
-            </a>
-            <a href="/login">
-                <button class="sign-up">Masuk</button>
-            </a>
-        </div>
-    </nav>
-
     <section class="hero">
         <img src="{{ asset('images/dekorin-white.png') }}" alt="dekorin" class="hero-logo">
         <div class="hero-content">
