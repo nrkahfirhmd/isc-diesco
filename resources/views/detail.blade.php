@@ -65,33 +65,34 @@
             <div class="detail">
                 <div class="showcase">
                     <div class="main-image">
-                        <img src="/images/service.jpg" alt="main-image">
+                        <img src="data:image/png;base64,{{ $product->banner }}" alt="banner">
                     </div>
                     <div class="other-image no-scrollbar">
                         <div class="img-list">
-                            <img src="/images/service.jpg" alt="img1">
+                            <img src="data:image/png;base64,{{ $product->banner }}" alt="banner">
                         </div>
                         <div class="img-list">
-                            <img src="/images/service.jpg" alt="img2">
+                            <img src="data:image/png;base64,{{ $product->banner }}" alt="banner">
                         </div>
                         <div class="img-list">
-                            <img src="/images/service.jpg" alt="img3">
+                            <img src="data:image/png;base64,{{ $product->banner }}" alt="banner">
                         </div>
                         <div class="img-list">
-                            <img src="/images/service.jpg" alt="img4">
+                            <img src="data:image/png;base64,{{ $product->banner }}" alt="banner">
                         </div>
                     </div>
                 </div>
                 <div class="from-vendor">
-                    <h1 class="header">Lainnya Dari <span style="text-decoration: underline;">Jamkitchset</span></h1>
+                    <h1 class="header">Lainnya Dari <span style="text-decoration: underline;">{{ $vendor->nama }}</span></h1>
                     <div class="service-list no-scrollbar">
-                        <div class="service">
+                        @foreach ($vendorProducts as $venduct)
+                        <a class="service" href="/detail/{{ $venduct->id_product }}">
                             <div class="image">
-                                <img src="{{ asset('images/service.jpg') }}" alt="service1">
+                                <img src="data:image/png;base64,{{ $venduct->banner }}" alt="service">
                             </div>
                             <div class="info">
-                                <div class="name">Jamal Kitchen Set</div>
-                                <div class="brief">Kami akan membantu anda untuk menciptakan dapur impian keluarga</div>
+                                <div class="name">{{ $venduct->nama }}</div>
+                                <div class="brief">{{ $venduct->deskripsi }}</div>
                                 <div class="ratings">
                                     <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
@@ -100,7 +101,7 @@
                                     <p class="number">4.9</p>
                                     <p class="total">(20+)</p>
                                 </div>
-                                <div class="price">Mulai dari Rp.1.500.000,-</div>
+                                <div class="price">Mulai dari Rp.{{ str_replace(',', '.', number_format($venduct->harga, 2)) }},-</div>
                                 <div class="category">
                                     <p>Kitchen Set</p>
                                     <div class="selengkapnya">
@@ -117,19 +118,21 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="relevant">
                     <h1 class="header">Jasa Lain</h1>
                     <div class="service-list no-scrollbar">
-                        <div class="service">
+                        @foreach ($products as $otherProduct)
+                        <a class="service" href="/detail/{{ $otherProduct->id_product }}">
                             <div class="image">
-                                <img src="{{ asset('images/service.jpg') }}" alt="service1">
+                                <img src="data:image/png;base64,{{ $otherProduct->banner }}" alt="service">
                             </div>
                             <div class="info">
-                                <div class="name">Jamal Kitchen Set</div>
-                                <div class="brief">Kami akan membantu anda untuk menciptakan dapur impian keluarga</div>
+                                <div class="name">{{ $otherProduct->nama }}</div>
+                                <div class="brief">{{ $otherProduct->deskripsi }}</div>
                                 <div class="ratings">
                                     <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
@@ -138,7 +141,7 @@
                                     <p class="number">4.9</p>
                                     <p class="total">(20+)</p>
                                 </div>
-                                <div class="price">Mulai dari Rp.1.500.000,-</div>
+                                <div class="price">Mulai dari Rp.{{ str_replace(',', '.', number_format($otherProduct->harga, 2)) }},-</div>
                                 <div class="category">
                                     <p>Kitchen Set</p>
                                     <div class="selengkapnya">
@@ -155,7 +158,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -164,7 +168,7 @@
                     <div class="pricing">
                         <p>Mulai Dari</p>
                         <div class="price">
-                            Rp 1.500.000.-
+                            Rp.{{ str_replace(',', '.', number_format($product->harga, 2)) }},-
                         </div>
                         <div class="discount">
                             Diskon <span style="font-weight: 600;">15%</span> dengan <span style="color: var(--secondary-color); text-decoration: underline;">Paket Jamilah</span>
@@ -214,13 +218,13 @@
                         </div>
                     </div>
                     <div class="buy">
-                        <button>
+                        <a href="/request">
                             Ajukan Penawaran
                             <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13.75 17.25L11.825 15.2563L16.7063 10.375H0V7.625H16.7063L11.825 2.74375L13.75 0.75L22 9L13.75 17.25Z"
                                     fill="#FCF8F3" />
                             </svg>
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="vendor">
@@ -230,18 +234,17 @@
                     <div class="info">
                         <div class="prof-wrapper">
                             <div class="photo">
-                                <img src="/images/profile.jpg" alt="profile">
+                                <img src="data:image/png;base64,{{ $vendor->photo }}" alt="vendor">
                             </div>
                             <div class="name">
-                                <h2>Jamal Kitchen Set</h2>
+                                <h2>{{ $vendor->nama }}</h2>
                                 <div class="ratings">
                                     <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
                                             fill="#4C3BCF" />
                                     </svg>
-                                    <p class="number">4.9</p>
-                                    <p class="total">(20+)</p>
+                                    <p class="number"> {{ $vendor->rating }} </p>
                                 </div>
                             </div>
                         </div>
@@ -249,14 +252,14 @@
                             Hubungi vendor dengan jaminan dibalas 1x24 Jam
                         </div>
                         <div class="ask">
-                            <button>
+                            <a href="/ask">
                                 Tanya vendor
                                 <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M5.125 13.125H13.625V11H5.125V13.125ZM5.125 9.9375H17.875V7.8125H5.125V9.9375ZM5.125 6.75H17.875V4.625H5.125V6.75ZM0.875 21.625V2.5C0.875 1.91562 1.08307 1.41536 1.49922 0.999219C1.91536 0.583073 2.41562 0.375 3 0.375H20C20.5844 0.375 21.0846 0.583073 21.5008 0.999219C21.9169 1.41536 22.125 1.91562 22.125 2.5V15.25C22.125 15.8344 21.9169 16.3346 21.5008 16.7508C21.0846 17.1669 20.5844 17.375 20 17.375H5.125L0.875 21.625ZM4.22188 15.25H20V2.5H3V16.4453L4.22188 15.25Z"
                                         fill="#4C3BCF" />
                                 </svg>
-                            </button>
+                            </a>
                             <div class="report">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path

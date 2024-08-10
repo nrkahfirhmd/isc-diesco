@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('id_vendor');
             $table->string('nama');
             $table->integer('kategori');
+            $table->string('harga');
             $table->text('deskripsi');
             $table->mediumText('banner');
         });

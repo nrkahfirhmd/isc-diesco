@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,13 +21,9 @@ Route::get('/auth/otp', [RegisterController::class, 'authStepTwo']);
 
 Route::get('/auth/password', [RegisterController::class, 'authStepThree']);
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/home', [ProductController::class, 'index']);
 
-Route::get('/detail', function () {
-    return view('detail');
-});
+Route::get('/detail/{id}', [ProductController::class, 'detail']);
 
 Route::get('/ask', function () {
     return view('ask');
