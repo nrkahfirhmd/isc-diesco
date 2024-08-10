@@ -149,12 +149,6 @@
 
     <script src="{{ asset('js/register.js') }}"></script>
     <script type="text/javascript">
-        @if (session('otp-alert'))
-            alert("Your OTP is {{ session('otp') }}").then(() => {
-                {{ session()->forget('otp-alert') }}
-            });
-        @endif
-
         $(document).ready(function () {
             let currentStep = {{ session('step') ?? 1 }};
             toNextSection(currentStep);

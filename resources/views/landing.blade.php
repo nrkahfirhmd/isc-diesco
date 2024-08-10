@@ -4,7 +4,7 @@
     <link rel="stylesheet" href=" {{ asset('css/landing.css') }} ">
 </head>
 
-<body>
+<body>  
     <nav class="navbar">
         <a href="" class="logo">
             <img src="/images/dekorin.png" alt="Dekorin">

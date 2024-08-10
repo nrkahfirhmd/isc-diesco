@@ -36,7 +36,7 @@ class RegisterController extends Controller
         session(['otp' => $code]);
         session(['otp-alert' => '1']);
 
-        return redirect('/register');
+        return redirect('/register')->with('warning', 'Kode OTP: ' . $code);
     }
 
     public function authStepTwo(Request $request)
@@ -72,18 +72,31 @@ class RegisterController extends Controller
                 'id' => $id
             ]);
 
-            DB::table('customer')->insert([
-                'id_cust' => $id,
-                'nama' => $username,
-                'email' => session('email'),
-                'no_telp' => session('telp'),
-                'photo' => "tba"
-            ]);
+            if ($level == 1) {
+                DB::table('vendor')->insert([
+                    'id_vendor' => $id,
+                    'nama' => $username,
+                    'email' => session('email'),
+                    'no_telp' => session('telp'),
+                    'photo' => "tba",
+                    'deskripsi' => "tba",
+                    'pro' => false,
+                    "rating" => 0
+                ]);
+            } else {
+                DB::table('customer')->insert([
+                    'id_cust' => $id,
+                    'nama' => $username,
+                    'email' => session('email'),
+                    'no_telp' => session('telp'),
+                    'photo' => "tba"
+                ]);
+            }
         }
 
         session()->forget(['username', 'level', 'email', 'telp', 'otp', 'otp-alert', 'step']);
 
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Registrasi berhasil, silahkan login!');
     }
 
     public function getRandomOTP()

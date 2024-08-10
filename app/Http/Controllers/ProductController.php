@@ -52,7 +52,7 @@ class ProductController extends Controller
             'status' => '0'
         ]);
 
-        return redirect('/home');
+        return redirect('/home')->with('success', 'Pengajuan request berhasil dikirim');
     }
 
     public function getRandomID()
@@ -77,7 +77,7 @@ class ProductController extends Controller
     }
 
     public function askProcess(Request $request, $id) {
-        $pertanyaan = $request->input('ask-vendor');
+        $pertanyaan = $request->input('question');
         $id_ask = $this->getRandomID();
 
         $product = DB::table('product')->where('id_product', $id)->first();

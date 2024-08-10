@@ -16,7 +16,7 @@ class UserController extends Controller
     public function registerView()
     {
         if (!session('step')) {
-            session(['step' => '1']);
+            session(['step' => '1']);   
         }
         
         // dd(session('step'));
@@ -36,12 +36,12 @@ class UserController extends Controller
             session(['id' => $user->id]);
 
             if ($user->level == 0) {
-                return redirect('/home');
+                return redirect('/home')->with('success', 'Login berhasil, selamat datang kembali!');
             } else {
-                return redirect('/home'); // to be changed
+                return redirect('/home')->with('success', 'Login berhasil, selamat datang kembali!'); // to be changed
             }
         }
 
-        return redirect('/login');
+        return redirect()->back()->with('error', 'Username atau password salah');
     }
 }

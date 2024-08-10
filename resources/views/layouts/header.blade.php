@@ -7,3 +7,5 @@
     <link rel="stylesheet" href=" {{ asset('css/app.css') }} ">
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 </head>
+
+@include('layouts.alert')

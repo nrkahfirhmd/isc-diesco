@@ -1,0 +1,42 @@
+.alert-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert {
+    position: fixed;
+    top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 1em 3em;
+    z-index: 1000;
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.alert .closebtn {
+    cursor: pointer;
+    font-size: 32px;
+    color: white;
+    font-weight: 600;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.success {
+    background-color: var(--secondary-color);
+}
+
+.error {
+    background-color: #ff0000;
+}
+
+.warning {
+    background-color: #ffcc00;
+}
