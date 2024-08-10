@@ -215,6 +215,8 @@
             </div>
         </div>
     </main>
+
+    <script src="/js/drag.js"></script>
 </body>
 
 @include('layouts.footer')

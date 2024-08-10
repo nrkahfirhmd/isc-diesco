@@ -238,6 +238,11 @@ main {
     overflow-x: scroll;
     justify-content: center;
     padding: 0 1em;
+    cursor: grab
+}
+
+.service-list * {
+    user-select: none;
 }
 
 .service {
