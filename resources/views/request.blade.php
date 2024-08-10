@@ -51,7 +51,8 @@
         </div>
         <div class="content">
             <div class="form-wrapper">
-                <form action="post" class="register-form">
+                <form action="/request/process/{{ $product->id_product }}" class="register-form">
+                    @csrf
                     <div class="greetings">
                         <h1>Form Pengajuan</h1>
                     </div>
@@ -104,16 +105,15 @@
                     <div class="info">
                         <div class="prof-wrapper">
                             <div class="photo">
-                                <img src="/images/profile.jpg" alt="profile">
+                                <img src="data:image/png;base64,{{ $vendor->photo }}" alt="vendor">
                             </div>
                             <div class="name">
-                                <h3>Jamal Kitchen Set</h3>
+                                <h3>{{ $vendor->nama }}</h3>
                                 <div class="ratings">
                                     <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z" fill="#4C3BCF" />
                                     </svg>
-                                    <p class="number">4.9</p>
-                                    <p class="total">(20+)</p>
+                                    <p class="number">{{ $vendor->rating }}</p>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +134,7 @@
                     <div class="pricing">
                         <p>Mulai dari</p>
                         <div class="price">
-                            Rp 1.500.000.-
+                            Rp.{{ str_replace(',', '.', number_format($product->harga, 2)) }},-
                         </div>
                         <div class="discount">
                             Diskon <span style="font-weight: 600;">15%</span> dengan <span style="color: var(--secondary-color); text-decoration: underline;">Paket Jamilah</span>

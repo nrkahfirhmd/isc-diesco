@@ -29,6 +29,6 @@ Route::get('/ask', function () {
     return view('ask');
 });
 
-Route::get('/request', function () {
-    return view('request');
-});
+Route::get('/request/{id}', [ProductController::class, 'request']);
+
+Route::get('/request/process/{id}', [ProductController::class, 'requestProcess']);

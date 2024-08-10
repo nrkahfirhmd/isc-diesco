@@ -15,7 +15,8 @@ return new class extends Migration
             $table->string('id_request')->primary();
             $table->string('id_product');
             $table->string('id_cust');
-            $table->string('judul');
+            $table->string('nama');
+            $table->string('alamat');
             $table->text('deskripsi');
             $table->string('harga');
             $table->integer('status');

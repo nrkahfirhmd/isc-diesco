@@ -218,7 +218,7 @@
                         </div>
                     </div>
                     <div class="buy">
-                        <a href="/request">
+                        <a href="/request/{{ $product->id_product }}">
                             Ajukan Penawaran
                             <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13.75 17.25L11.825 15.2563L16.7063 10.375H0V7.625H16.7063L11.825 2.74375L13.75 0.75L22 9L13.75 17.25Z"
