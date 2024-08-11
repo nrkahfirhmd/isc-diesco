@@ -1,5 +1,5 @@
 main {
-    margin: 3.5em 0 ;
+    margin: 3.5em 0;
     display: flex;
     gap: 3.5em;
     flex-direction: column;
@@ -43,7 +43,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 2em;
-    width: 30%;
+    width: 40%;
 }
 
 .profile {
@@ -55,12 +55,20 @@ main {
     flex-direction: column;
 }
 
+.profile .container {
+    display: flex;
+    gap: 2em;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .profile .about-wrapper {
+    width: 33%;
     display: flex;
     gap: 0.75em;
-    justify-content: center;
-    height: 25%;
     flex-direction: column;
+    height: 100%;
 }
 
 .profile .about-wrapper h4 {
@@ -72,10 +80,10 @@ main {
 
 .profile .info {
     display: flex;
-    gap: 1em;
+    gap: 2em;
     width: 100%;
     flex-direction: row;
-    margin: 0 0 1em 0;
+    margin: 0 0 2em 0;
 }
 
 .profile .info .photo {
@@ -117,6 +125,12 @@ main {
     font-size: 16px;
     font-weight: 600;
     flex-direction: column;
+    font-size: 40px;
+    justify-content: center;
+}
+
+.profile .name h2 {
+    font-weight: 600;
 }
 
 .profile .name .rating {
@@ -134,7 +148,7 @@ main {
     border: 1px solid var(--quaternary-color);
     padding: 2em;
     border-radius: 50px;
-    max-height: 35em;
+    max-height: 50em;
 }
 
 .message .title {
@@ -160,7 +174,7 @@ main {
 
 .message .card {
     display: flex;
-    gap: 1em;
+    gap: 2em;
     padding: 2em;
     border-radius: 50px;
     border: 1px solid var(--quaternary-color);
@@ -227,21 +241,24 @@ main {
     width: 100%;
     text-wrap: wrap;
     height: 70%;
+    justify-content: center;
+    align-items: center;
 }
 
 .dashboard .main {
     display: flex;
     gap: 2em;
     flex-direction: column;
-    width: 70%;
+    width: 60%;
 }
 
 .activity {
     display: flex;
+    padding: 2em;
     gap: 2em;
     flex-direction: column;
-    width: 100%;
-    max-height: 20em;
+    border-radius: 50px;
+    border: 1px solid var(--quaternary-color);
 }
 
 .activity .title {
@@ -250,94 +267,73 @@ main {
     align-items: center;
 }
 
-.activity .table {
-    max-width: 100%;
-    max-height: 100%;
-    overflow-y: scroll;
+.activity .service-list {
+    display: flex;
+    gap: 2em;
+    overflow-x: scroll;
+    height: 100%;
+    cursor: grab;
 }
 
-.activity table {
+.activity .activity-card {
     display: flex;
     gap: 1em;
-    border-collapse: collapse;
+    padding: 2em;
+    border-radius: 20px;
+    border: 1px solid var(--quaternary-color);
+    flex-direction: column;
+    min-width: 25em;
+    max-width: 25em;
+    user-select: none;
 }
 
-.activity table tr {
-    border-bottom: 1px solid var(--quaternary-color);
+.activity .activity-card .info {
     display: flex;
-    gap: 1em;
-    padding: 1em 0;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
 }
 
-.activity table td {
-    width: 15%;
+.activity .activity-card .info .status p {
+    padding: 0.25em 1em;
+    background-color: limegreen;
+    border-radius: 20px;
+    color: white;
+}
+
+.activity .prof-wrapper {
     display: flex;
+    gap: 0.5em;
     justify-content: center;
     align-items: center;
 }
 
-.activity table .photo {
-    width: 50%;
+.activity .prof-wrapper .photo {
+    width: 20%;
     aspect-ratio: 1 / 1;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    flex-direction: column;
 }
 
-.activity table .photo img {
-    width: 100%;
+.activity .prof-wrapper .photo img {
+    width: 80%;
     object-fit: cover;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
 }
 
-.activity table .name {
+.activity .prof-wrapper .name {
     display: flex;
-    gap: 0.25em;
     flex-direction: column;
-}
-
-.activity table .product {
-    display: flex;
     gap: 0.25em;
-}
-
-.activity table .deskripsi {
     width: 100%;
+}
+
+.activity .prof-wrapper .ratings {
     display: flex;
-    flex-direction: column;
-    gap: 0.25em;
-}
-
-.activity table .penawaran-harga {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25em;
-}
-
-.activity table .status {
-    display: flex;
-    gap: 0.25em;
-}
-
-.activity table .status p {
-    padding: 1em;
-    border-radius: 50px;
-    color: white;
-}
-
-.progress {
-    background-color: var(--secondary-color);
-}
-
-.rejected {
-    background-color: red;
-}
-
-.done {
-    background-color: limegreen;
+    gap: 0.5em;
 }
 
 .no-scrollbar {

@@ -37,3 +37,5 @@ Route::get('/request/process/{id}', [ProductController::class, 'requestProcess']
 Route::get('/logout', [UserController::class, 'logout']);
 
 Route::get('/vendor', [VendorController::class, 'index']);
+
+Route::get('/profile', [UserController::class, 'profile']);

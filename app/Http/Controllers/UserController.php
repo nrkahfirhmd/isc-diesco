@@ -51,4 +51,15 @@ class UserController extends Controller
 
         return redirect('/')->with('success', 'Logout berhasil');
     }
+
+    public function profile()
+    {
+        if (!session('username')) {
+            return redirect('/login')->with('error', 'Silahkan login terlebih dahulu');
+        }
+
+        $user = DB::table('username')->where('username', session('username'))->first();
+
+        return view('profile');
+    }
 }

@@ -112,12 +112,12 @@
             </div>
 
             <div class="main">
-                <div class="activity no scrollbar">
+                <div class="activity">
                     <div class="title">
                         <h1>Aktivitas Anda</h1>
                     </div>
                     
-                    <div class="table">
+                    <div class="table no-scrollbar">
                         <table>
                             <tr>
                                 <td style="width: 10%">
