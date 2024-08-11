@@ -34,6 +34,7 @@ class UserController extends Controller
         if ($user && Hash::check($password, $user->password)) {
             session(['username' => $username]);
             session(['id' => $user->id]);
+            session(['level' => $user->level]);
 
             if ($user->level == 0) {
                 return redirect('/home')->with('success', 'Login berhasil, selamat datang kembali!');
@@ -59,7 +60,17 @@ class UserController extends Controller
         }
 
         $user = DB::table('username')->where('username', session('username'))->first();
+        $customer = DB::table('customer')->where('id_cust', $user->id)->first();
+        $requests = DB::table('request')
+            ->select('request.*', 'product.*', 'vendor.rating', 'vendor.nama', 'vendor.photo')
+            ->join('product', 'request.id_product', '=', 'product.id_product')
+            ->join('vendor', 'product.id_vendor', '=', 'vendor.id_vendor')
+            ->where('request.id_cust', $user->id)->get();
+        $questions = DB::table('question')
+            ->select('question.*', 'vendor.*')
+            ->join('vendor', 'question.id_vendor', '=', 'vendor.id_vendor')
+            ->where('question.id_cust', $user->id)->get();
 
-        return view('profile');
+        return view('profile', ['user' => $customer, 'requests' => $requests, 'questions' => $questions]);
     }
 }

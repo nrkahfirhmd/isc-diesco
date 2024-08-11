@@ -7,7 +7,7 @@
     <main>
         <div class="greetings">
             <div class="text">
-                <h1>Halo Sambo Metal!</h1>
+                <h1>Halo {{ $vendor->nama }}!</h1>
                 <p>Senang bertemu anda kembali</p>
             </div>
             <a href="/logout">
@@ -20,20 +20,20 @@
                 <div class="profile">
                     <div class="info">
                         <div class="photo">
-                            <img src="/images/profile.jpg" alt="profile">
+                            <img src="data:image/png;base64,{{ $vendor->photo }}" alt="profile">
                             <div class="change">
                                 <p>Ganti Foto</p>
                             </div>
                         </div>
                         <div class="name">
-                            <h2>Jamal Kitchen Set</h2>
+                            <h2> {{ $vendor->nama }} </h2>
                             <div class="rating">
                                 <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M4.55312 21.625L6.38125 13.7219L0.25 8.40625L8.35 7.70312L11.5 0.25L14.65 7.70312L22.75 8.40625L16.6187 13.7219L18.4469 21.625L11.5 17.4344L4.55312 21.625Z"
                                         fill="#4C3BCF" />
                                 </svg>
-                                4.9
+                                {{ $vendor->rating }}
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                                     fill="#525252" />
                             </svg>
                         </h4>
-                        <p>0812-3212-3187</p>
+                        <p> {{ $vendor->no_telp }} </p>
                     </div>
                     <div class="about-wrapper">
                         <h4>
@@ -68,46 +68,56 @@
                                     fill="#525252" />
                             </svg>
                         </h4>
-                        <p>sambo432@gmail.com</p>
+                        <p> {{ $vendor->email }} </p>
                     </div>
                 </div>
 
                 <div class="message">
                     <div class="title">
                         <h1>Pesan</h1>
-                        <div class="notification">
+                        <!-- <div class="notification">
                             <p>1 Pesan Baru</p>
-                        </div>
+                        </div> -->
                     </div>
 
-                    <div class="card-wrapper no-scrollbar">
-                        <div class="card">
-                            <div class="head-wrapper">
-                                <div class="prof-wrapper">
-                                    <div class="photo">
-                                        <img src="/images/profile.jpg" alt="profile">
-                                    </div>
-                                    <div class="name">
-                                        <h2>Sambo Metal</h2>
-                                        <div class="address">
-                                            Cilodong, Depok
+                    @if (count($questions) == 0)
+                        <div class="empty">
+                            <h1>Belum ada pesan</h1>
+                            <p>Anda belum memiliki pesan</p>
+                        </div>
+                    @else
+                        <div class="card-wrapper no-scrollbar">
+                            @foreach ($questions as $question)
+                                <div class="card">
+                                    <div class="head-wrapper">
+                                        <div class="prof-wrapper">
+                                            <div class="photo">
+                                                <img src="data:image/png;base64,{{ $question->photo }}" alt="vendor">
+                                            </div>
+                                            <div class="name">
+                                                <h2> {{$question->nama}} </h2>
+                                                <div class="address">
+                                                    Cilodong, Depok
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="status">
+                                            @if ($question->reply == "TBA")                                        
+                                                <p style="background-color: var(--quaternary-color);">Sent</p>
+                                            @else
+                                                <p style="background-color: var(--secondary-color);">Replied</p>
+                                            @endif
                                         </div>
                                     </div>
+
+                                    <div class="content no-scrollbar">
+                                        {{ $question->question }}
+                                    </div>
                                 </div>
-                        
-                                <div class="status">
-                                    <p>Sent</p>
-                                </div>
-                            </div>
-                        
-                            <div class="content no-scrollbar">
-                                Hai Kak Sambo, terimakasih sudah menghubungi kami. Untuk design yang disediakan dari kakak, akan diberikan
-                                potongan
-                                sebesar 10% dari estimasi yang disepakati ya kak. Terimakasih.
-                                olkfjisensaefdkjnonselkjfhsiolfhjsolifjhsoifdjopisefopisehfiopsfpoisej
-                            </div>
+                            @endforeach
                         </div>
-                    </div>  
+                    @endif
                 </div>
             </div>
 
@@ -117,45 +127,63 @@
                         <h1>Aktivitas Anda</h1>
                     </div>
                     
-                    <div class="table no-scrollbar">
-                        <table>
-                            <tr>
-                                <td style="width: 10%">
-                                    <div class="photo">
-                                        <img src="/images/profile.jpg" alt="profile">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="name">
-                                        <h3>Sambo Metal</h2>
-                                        <p>Cilodong Depok</p>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="product">
-                                        <h3>Cozy Kitchen Set</h3>
-                                    </div>
-                                </td>
-                                <td style="width: 40%;">
-                                    <div class="deskripsi">
-                                        <h3>Deskripsi</h2>
-                                        <p>Memasang kitchen set dari design yang diberikan</p>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="penawaran-harga">
-                                        <h3>Penawaran Harga</h2>
-                                        <p>Rp. 6.000.000,-</p>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="status">
-                                        <p class="progress">On Progress</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                    @if (count($requests) == 0)
+                        <div class="empty">
+                            <h1>Belum ada aktivitas</h1>
+                            <p>Belum ada yang memesan produk kamu nih!</p>
+                        </div>
+                    @else
+                        <div class="table no-scrollbar">
+                            <table>
+                                @foreach ($requests as $request)
+                                    <tr>
+                                        <td style="width: 10%">
+                                            <div class="photo">
+                                                <img src="data:image/png;base64,{{ $request->photo }}" alt="profile">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="name">
+                                                <h3> {{ $request->nama }} </h2>
+                                                <p>Cilodong Depok</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="product">
+                                                <h3>{{ $request->namaProd }}</h3>
+                                            </div>
+                                        </td>
+                                        <td style="width: 40%;">
+                                            <div class="deskripsi">
+                                                <h3>Deskripsi</h3>
+                                                <p>{{ $request->deskripsi }}</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="penawaran-harga">
+                                                <h3>Penawaran Harga</h3>
+                                                <p>Rp. {{ str_replace(',', '.', number_format($request->harga, 2)) }},-</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="status">
+                                                @if ($request->status == 0)
+                                                    <a href="/vendor/accept/{{ $request->id_request }}" class="done" style="cursor: pointer;">Terima</a>
+                                                    <a href="/vendor/reject/{{ $request->id_request }}" class="rejected" style="cursor: pointer;">Tolak</a>
+                                                @elseif ($request->status == 1)
+                                                    <a href="/vendor/complete/{{ $request->id_request }}" class="progress">On Progress</a>
+                                                @elseif ($request->status == 2)
+                                                    <a class="done">Selesai</a>
+                                                @else
+                                                    <a class="rejected">Ditolak</a>
+                                                @endif
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

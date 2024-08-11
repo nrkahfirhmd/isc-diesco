@@ -192,7 +192,6 @@ main {
 
 .message .head-wrapper .status p {
     padding: 0.25em 1em;
-    background-color: var(--quaternary-color);
     border-radius: 20px;
     color: white;
 }
@@ -296,9 +295,33 @@ main {
 
 .activity .activity-card .info .status p {
     padding: 0.25em 1em;
-    background-color: limegreen;
     border-radius: 20px;
     color: white;
+}
+
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+}
+
+.waiting {
+    background-color: var(--quaternary-color);
+}
+
+.done {
+    background-color: limegreen;
+}
+
+.rejected {
+    background-color: red;
+}
+
+.progress {
+    background-color: var(--secondary-color);
 }
 
 .activity .prof-wrapper {

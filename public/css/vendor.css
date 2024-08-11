@@ -160,7 +160,7 @@ main {
 
 .message .card {
     display: flex;
-    gap: 1em;
+    gap: 2em;
     padding: 2em;
     border-radius: 50px;
     border: 1px solid var(--quaternary-color);
@@ -227,6 +227,8 @@ main {
     width: 100%;
     text-wrap: wrap;
     height: 70%;
+    justify-content: center;
+    align-items: center;
 }
 
 .dashboard .main {
@@ -322,7 +324,9 @@ main {
     gap: 0.25em;
 }
 
-.activity table .status p {
+.activity table .status a {
+    text-decoration: none;
+    cursor: pointer;
     padding: 1em;
     border-radius: 50px;
     color: white;
@@ -338,6 +342,15 @@ main {
 
 .done {
     background-color: limegreen;
+}
+
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
 }
 
 .no-scrollbar {

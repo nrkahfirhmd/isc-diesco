@@ -39,3 +39,9 @@ Route::get('/logout', [UserController::class, 'logout']);
 Route::get('/vendor', [VendorController::class, 'index']);
 
 Route::get('/profile', [UserController::class, 'profile']);
+
+Route::get('/vendor/accept/{id}', [VendorController::class, 'accept']);
+
+Route::get('/vendor/reject/{id}', [VendorController::class, 'reject']);
+
+Route::get('/vendor/complete/{id}', [VendorController::class, 'complete']);

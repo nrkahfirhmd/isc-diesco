@@ -7,7 +7,7 @@
     <main>
         <div class="greetings">
             <div class="text">
-                <h1>Halo Sambo Metal!</h1>
+                <h1>Halo {{ $user->nama }}!</h1>
                 <p>Senang bertemu anda kembali</p>
             </div>
             <a href="/logout">
@@ -20,13 +20,13 @@
                 <div class="profile">
                     <div class="info">
                         <div class="photo">
-                            <img src="/images/profile.jpg" alt="profile">
+                            <img src="data:image/png;base64,{{ $user->photo }}" alt="profile">
                             <div class="change">
                                 <p>Ganti Foto</p>
                             </div>
                         </div>
                         <div class="name">
-                            <h2>Sambo Metal</h2>
+                            <h2>{{ $user->nama }}</h2>
                             <div class="address">
                                 Cilodong, Depok
                             </div>
@@ -53,7 +53,7 @@
                                         fill="#525252" />
                                 </svg>
                             </h4>
-                            <p>0812-3212-3187</p>
+                            <p>{{ $user->no_telp }}</p>
                         </div>
                         <div class="about-wrapper">
                             <h4>
@@ -64,7 +64,7 @@
                                         fill="#525252" />
                                 </svg>
                             </h4>
-                            <p>sambo432@gmail.com</p>
+                            <p>{{$user->email}}</p>
                         </div>
                     </div>
                 </div>
@@ -74,75 +74,106 @@
                         <h1>Aktivitas Anda</h1>
                     </div>
 
-                    <div class="service-list no-scrollbar">
-                        <div class="activity-card">
-                            <div class="info">
-                                <div class="date">
-                                    Diajukan pada: 1 Agustus 2024
-                                </div>
-                                <div class="status">
-                                    <p class="cone">Selesai</p>
-                                </div>
-                            </div>
-                            <div class="prof-wrapper">
-                                <div class="photo">
-                                    <img src="/images/profile.jpg" alt="profile">
-                                </div>
-                                <div class="name">
-                                    <h2>Jamal Kitchen Set</h2>
-                                    <div class="rating">
-                                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
-                                                fill="#4C3BCF" />
-                                        </svg>
-                                        4.9
+                    @if (count($requests) == 0)
+                        <div class="empty">
+                            <h1>Belum ada aktivitas</h1>
+                            <p>Anda belum melakukan permintaan jasa apapun</p>
+                        </div>
+                    @else
+                        <div class="service-list no-scrollbar">
+                            @foreach ($requests as $request)
+                            <div class="activity-card">
+                                <div class="info">
+                                    <div class="date">
+                                        Diajukan pada: 1 Agustus 2024
+                                    </div>
+                                    <div class="status">
+                                        @if ($request->status == '0')
+                                            <p class="waiting">On Queue</p>
+                                        @elseif ($request->status == '1')
+                                            <p class="progress">Progress</p>
+                                        @elseif ($request->status == '2')
+                                            <p class="done">Selesai</p>
+                                        @elseif ($request->status == '3')
+                                            <p class="rejected">Ditolak</p>
+                                        @endif                                    
                                     </div>
                                 </div>
+                                <div class="prof-wrapper">
+                                    <div class="photo">
+                                        <img src="data:image/png;base64,{{ $request->photo }}" alt="vendor">
+                                    </div>
+                                    <div class="name">
+                                        <h2> {{ $request->nama }} </h2>
+                                        <div class="rating">
+                                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
+                                                    fill="#4C3BCF" />
+                                            </svg>
+                                            {{ $request->rating }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="desc">
+                                    <p> {{ $request->deskripsi }} </p>
+                                </div>
                             </div>
-                            <div class="desc">
-                                <p>Menyediakan jasa pembuatan kitchen set dengan harga terjangkau</p>
-                            </div>
+                            @endforeach
                         </div>
-                    </div>
+                    @endif                    
                 </div>
             </div>
             <div class="side">
                 <div class="message">
                     <div class="title">
                         <h1>Pesan</h1>
-                        <div class="notification">
+                        <!-- <div class="notification">
                             <p>1 Pesan Baru</p>
-                        </div>
+                        </div> -->
                     </div>
-                
-                    <div class="card-wrapper no-scrollbar">
-                        <div class="card">
-                            <div class="head-wrapper">
-                                <div class="prof-wrapper">
-                                    <div class="photo">
-                                        <img src="/images/profile.jpg" alt="profile">
-                                    </div>
-                                    <div class="name">
-                                        <h2>Sambo Metal</h2>
-                                        <div class="address">
-                                            Cilodong, Depok
+
+                    @if (count($questions) == 0)
+                        <div class="empty">
+                            <h1>Belum ada pesan</h1>
+                            <p>Anda belum memiliki pesan</p>
+                        </div>
+                    @else
+                        <div class="card-wrapper no-scrollbar">
+                            @foreach ($questions as $question)
+                                <div class="card">
+                                    <div class="head-wrapper">
+                                        <div class="prof-wrapper">
+                                            <div class="photo">
+                                                <img src="data:image/png;base64,{{ $question->photo }}" alt="vendor">
+                                            </div>
+                                            <div class="name">
+                                                <h2> {{$question->nama}} </h2>
+                                                <div class="address">
+                                                    {{$question->rating}}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="status">
+                                            @if ($question->reply == "TBA")                                        
+                                                <p style="background-color: var(--quaternary-color);">Sent</p>
+                                            @else
+                                                <p style="background-color: var(--secondary-color);">Replied</p>
+                                            @endif
                                         </div>
                                     </div>
+
+                                    <div class="content no-scrollbar">
+                                        @if ($question->reply == "TBA")                                        
+                                            <p> menunggu jawaban! </p>
+                                        @else
+                                            {{ $question->reply }}
+                                        @endif
+                                    </div>
                                 </div>
-                
-                                <div class="status">
-                                    <p>Sent</p>
-                                </div>
-                            </div>
-                
-                            <div class="content no-scrollbar">
-                                Hai Kak Sambo, terimakasih sudah menghubungi kami. Untuk design yang disediakan dari kakak, akan
-                                diberikan
-                                potongan
-                                sebesar 10% dari estimasi yang disepakati ya kak. Terimakasih.
-                            </div>
+                            @endforeach
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>
