@@ -3,6 +3,7 @@
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,3 +35,5 @@ Route::get('/request/{id}', [ProductController::class, 'request']);
 Route::get('/request/process/{id}', [ProductController::class, 'requestProcess']);
 
 Route::get('/logout', [UserController::class, 'logout']);
+
+Route::get('/vendor', [VendorController::class, 'index']);

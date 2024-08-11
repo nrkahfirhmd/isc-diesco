@@ -38,7 +38,7 @@ class UserController extends Controller
             if ($user->level == 0) {
                 return redirect('/home')->with('success', 'Login berhasil, selamat datang kembali!');
             } else {
-                return redirect('/home')->with('success', 'Login berhasil, selamat datang kembali!'); // to be changed
+                return redirect('/vendor')->with('success', 'Login berhasil, selamat datang kembali!');
             }
         }
 

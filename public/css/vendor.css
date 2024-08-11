@@ -1,0 +1,350 @@
+main {
+    margin: 3.5em 0 ;
+    display: flex;
+    gap: 3.5em;
+    flex-direction: column;
+}
+
+.greetings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10%;
+}
+
+.greetings .text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.greetings h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.greetings a {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    text-decoration: none;
+    padding: 0.75em 2em;
+    border-radius: 50px;
+}
+
+.dashboard {
+    display: flex;
+    gap: 2em;
+    width: 100%;
+}
+
+.dashboard .side {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 30%;
+}
+
+.profile {
+    display: flex;
+    gap: 2em;
+    padding: 2em;
+    border-radius: 50px;
+    border: 1px solid var(--quaternary-color);
+    flex-direction: column;
+}
+
+.profile .about-wrapper {
+    display: flex;
+    gap: 0.75em;
+    justify-content: center;
+    height: 25%;
+    flex-direction: column;
+}
+
+.profile .about-wrapper h4 {
+    display: flex;
+    font-size: 20px;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.profile .info {
+    display: flex;
+    gap: 1em;
+    width: 100%;
+    flex-direction: row;
+    margin: 0 0 1em 0;
+}
+
+.profile .info .photo {
+    width: 20%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-direction: column;
+}
+
+.profile .info .photo img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+}
+
+.profile .info .change {
+    height: 1px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.profile .change p {
+    background-color: #D9D9D9;
+    padding: 0.25em 1em;
+    border-radius: 20px;
+}
+
+.profile .info .name {
+    display: flex;
+    gap: 0.25em;
+    width: 70%;
+    font-size: 16px;
+    font-weight: 600;
+    flex-direction: column;
+}
+
+.profile .name .rating {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    color: var(--secondary-color);
+    font-weight: 800;
+}
+
+.message {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    border: 1px solid var(--quaternary-color);
+    padding: 2em;
+    border-radius: 50px;
+    max-height: 35em;
+}
+
+.message .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message .notification p {
+    background-color: var(--secondary-color);
+    padding: 0.25em 1em;
+    border-radius: 20px;
+    color: var(--primary-color);
+}
+
+.message .card-wrapper {
+    display: flex;
+    gap: 2em;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.message .card {
+    display: flex;
+    gap: 1em;
+    padding: 2em;
+    border-radius: 50px;
+    border: 1px solid var(--quaternary-color);
+    flex-direction: column;
+    max-height: 10em;
+}
+
+.message .head-wrapper {
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+    width: 100%;
+    height: 30%;
+}
+
+.message .head-wrapper .status p {
+    padding: 0.25em 1em;
+    background-color: var(--quaternary-color);
+    border-radius: 20px;
+    color: white;
+}
+
+.message .head-wrapper .prof-wrapper {
+    width: 80%;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    flex-direction: row;
+}
+
+.message .prof-wrapper .photo {
+    width: 15%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-direction: column;
+}
+
+.message .prof-wrapper .photo img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+}
+
+.message .prof-wrapper .name {
+    display: flex;
+    gap: 0.25em;
+    width: 70%;
+    font-size: 16px;
+    font-weight: 600;
+    flex-direction: column;
+}
+
+.message .card .content {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+    text-overflow: clip;
+    width: 100%;
+    text-wrap: wrap;
+    height: 70%;
+}
+
+.dashboard .main {
+    display: flex;
+    gap: 2em;
+    flex-direction: column;
+    width: 70%;
+}
+
+.activity {
+    display: flex;
+    gap: 2em;
+    flex-direction: column;
+    width: 100%;
+    max-height: 50em;
+}
+
+.activity .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.activity .table {
+    max-width: 100%;
+}
+
+.activity table {
+    display: flex;
+    gap: 1em;
+    border-collapse: collapse;
+}
+
+.activity table tr {
+    border-bottom: 1px solid var(--quaternary-color);
+    display: flex;
+    gap: 1em;
+    padding: 1em 0;
+}
+
+.activity table td {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.activity table .photo {
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-direction: column;
+}
+
+.activity table .photo img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+}
+
+.activity table .name {
+    display: flex;
+    gap: 0.25em;
+    flex-direction: column;
+}
+
+.activity table .product {
+    display: flex;
+    gap: 0.25em;
+}
+
+.activity table .deskripsi {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.activity table .penawaran-harga {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.activity table .status {
+    display: flex;
+    gap: 0.25em;
+}
+
+.activity table .status p {
+    padding: 1em;
+    border-radius: 50px;
+    color: white;
+}
+
+.progress {
+    background-color: var(--secondary-color);
+}
+
+.rejected {
+    background-color: red;
+}
+
+.done {
+    background-color: limegreen;
+}
+
+.no-scrollbar {
+    overflow: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    width: 0;  /* Chrome, Safari, Opera */
+    height: 0; /* Chrome, Safari, Opera */
+}
