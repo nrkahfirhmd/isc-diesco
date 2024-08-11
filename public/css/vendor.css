@@ -353,6 +353,23 @@ main {
     text-align: center;
 }
 
+.addProd {
+    display: flex;
+    justify-content: end;
+}
+
+.addProd a {
+    padding: 1em 3em;
+    border-radius: 50px;
+    color: white;
+    background-color: var(--secondary-color);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
 .no-scrollbar {
     overflow: scroll;
     scrollbar-width: none; /* Firefox */

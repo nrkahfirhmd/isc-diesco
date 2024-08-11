@@ -45,3 +45,7 @@ Route::get('/vendor/accept/{id}', [VendorController::class, 'accept']);
 Route::get('/vendor/reject/{id}', [VendorController::class, 'reject']);
 
 Route::get('/vendor/complete/{id}', [VendorController::class, 'complete']);
+
+Route::get('/vendor/add', [VendorController::class, 'addProductForm']);
+
+Route::post('/vendor/add/process', [VendorController::class, 'addProduct']);

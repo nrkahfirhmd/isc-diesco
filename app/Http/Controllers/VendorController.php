@@ -51,4 +51,48 @@ class VendorController extends Controller
 
         return redirect('/vendor')->with('success', 'Permintaan selesai');
     }
+
+    public function addProductForm()
+    {
+        return view('add');
+    }
+
+    public function addProduct(Request $request)
+    {
+        $judul = $request->input('judul');
+        $deskripsi = $request->input('deskripsi');
+        $kategori = $request->input('kategori');
+        $harga = $request->input('harga');
+        $gambar = $request->file('gambar');
+        $id_product = $this->getRandomID();
+
+
+        $user = DB::table('username')->where('username', session('username'))->first();
+
+        DB::table('product')->insert([
+            'id_product' => $id_product,
+            'id_vendor' => $user->id,
+            'nama' => $judul,
+            'kategori' => $kategori,
+            'harga' => $harga,
+            'deskripsi' => $deskripsi,
+            'banner' => base64_encode(file_get_contents($gambar))
+        ]);
+
+        return redirect('/vendor')->with('success', 'Produk berhasil ditambahkan');
+    }
+
+    public function getRandomID()
+    {
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $id = '';
+        $length = 6;
+
+        for ($i = 0; $i < $length; $i++) {
+            $index = rand(0, strlen($characters) - 1);
+            $id .= $characters[$index];
+        }
+
+        return $id;
+    }
 }
