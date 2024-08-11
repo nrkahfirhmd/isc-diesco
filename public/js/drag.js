@@ -26,7 +26,7 @@ scrollContainers.forEach((scrollContainer) => {
         if (!isDown) return; // stop the function from running if not mousedown
         e.preventDefault();
         const x = e.pageX - scrollContainer.offsetLeft;
-        const walk = (x - startX) * 3; // 3 is the scroll speed multiplier
+        const walk = (x - startX) * 2; // 3 is the scroll speed multiplier
         scrollContainer.scrollLeft = scrollLeft - walk;
     });
 });

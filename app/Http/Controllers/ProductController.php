@@ -9,17 +9,32 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = DB::table('product')->get();
+        $products = DB::table('product as p')
+            ->join('vendor as v', 'p.id_vendor', '=', 'v.id_vendor')
+            ->join('category as c', 'p.kategori', '=', 'c.id_category')
+            ->select('p.*', 'v.rating', 'c.category')
+            ->get();
 
         return view('home', ['products' => $products]);
     }
 
     public function detail($id)
     {
-        $product = DB::table('product')->where('id_product', $id)->first();
+        $product = DB::table('product as p')
+            ->join('category as c', 'p.kategori', '=', 'c.id_category')
+            ->select('p.*', 'c.category')
+            ->where('id_product', $id)->first();
         $vendor = DB::table('vendor')->where('id_vendor', $product->id_vendor)->first();
-        $vendorProducts = DB::table('product')->where('id_vendor', $product->id_vendor)->get();
-        $products = DB::table('product')->where('id_vendor', '!=', $vendor->id_vendor)->get();
+        $vendorProducts = DB::table('product as p')
+            ->join('vendor as v', 'p.id_vendor', '=', 'v.id_vendor')
+            ->join('category as c', 'p.kategori', '=', 'c.id_category')
+            ->select('p.*', 'v.rating', 'c.category')
+            ->where('p.id_vendor', $product->id_vendor)->get();
+        $products = DB::table('product as p')
+            ->join('vendor as v', 'p.id_vendor', '=', 'v.id_vendor')
+            ->join('category as c', 'p.kategori', '=', 'c.id_category')
+            ->select('p.*', 'v.rating', 'c.category')
+            ->where('p.id_vendor', '!=', $vendor->id_vendor)->get();
 
         return view('detail', ['product' => $product, 'vendor' => $vendor, 'vendorProducts' => $vendorProducts, 'products' => $products]);
     }

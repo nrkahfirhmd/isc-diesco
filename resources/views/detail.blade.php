@@ -16,12 +16,15 @@
                 Kembali
             </a>
             <div>
-                Kategori : Kitchen Set
+                Kategori : {{ $product->category }}
             </div>
         </div>
 
         <div class="content">
             <div class="detail">
+                <h1 style="font-weight: 600;">
+                    {{ $product->nama }}
+                </h1>
                 <div class="showcase">
                     <div class="main-image">
                         <img src="data:image/png;base64,{{ $product->banner }}" alt="banner">
@@ -57,12 +60,11 @@
                                         <path d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
                                             fill="#4C3BCF" />
                                     </svg>
-                                    <p class="number">4.9</p>
-                                    <p class="total">(20+)</p>
+                                    <p class="number"> {{ $venduct->rating }} </p>
                                 </div>
                                 <div class="price">Mulai dari Rp.{{ str_replace(',', '.', number_format($venduct->harga, 2)) }},-</div>
                                 <div class="category">
-                                    <p>Kitchen Set</p>
+                                    <p> {{ $venduct->category }} </p>
                                     <div class="selengkapnya">
                                         Selengkapnya
                                         <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,12 +99,11 @@
                                         <path d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
                                             fill="#4C3BCF" />
                                     </svg>
-                                    <p class="number">4.9</p>
-                                    <p class="total">(20+)</p>
+                                    <p class="number"> {{ $otherProduct->rating }} </p>
                                 </div>
                                 <div class="price">Mulai dari Rp.{{ str_replace(',', '.', number_format($otherProduct->harga, 2)) }},-</div>
                                 <div class="category">
-                                    <p>Kitchen Set</p>
+                                    <p> {{ $otherProduct->category }} </p>
                                     <div class="selengkapnya">
                                         Selengkapnya
                                         <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">

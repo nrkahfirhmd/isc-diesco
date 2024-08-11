@@ -98,12 +98,11 @@
                                     <path d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
                                         fill="#4C3BCF" />
                                 </svg>
-                                <p class="number">4.9</p>
-                                <p class="total">(20+)</p>
+                                <p class="number">{{ $product->rating }}</p>
                             </div>
                             <div class="price">Mulai dari Rp.{{ str_replace(',', '.', number_format($product->harga, 2)) }},-</div>
                             <div class="category">
-                                <p>Kitchen Set</p>
+                                <p>{{ $product->category }}</p>
                                 <div class="selengkapnya">
                                     Selengkapnya
                                     <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -128,47 +127,46 @@
             <h1 class="header">Trending</h1>
             <div class="service-list no-scrollbar">
                 @php
-                    $i = 0;
+                $i = 0;
                 @endphp
                 @foreach ($products as $product) 
                     @if ($i == 5)
                         @break
                     @endif
-                <div class="service">
-                    <div class="image">
-                        <img src="data:image/png;base64,{{ $product->banner }}" alt="service">
-                    </div>
-                    <div class="info">
-                        <div class="name">{{ $product->nama }}</div>
-                        <div class="brief">{{ $product->deskripsi }}</div>
-                        <div class="ratings">
-                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
-                                    fill="#4C3BCF" />
-                            </svg>
-                            <p class="number">4.9</p>
-                            <p class="total">(20+)</p>
+                <a class="service" href="/detail/{{ $product->id_product }}">
+                        <div class="image">
+                            <img src="data:image/png;base64,{{ $product->banner }}" alt="service">
                         </div>
-                        <div class="price">Mulai dari Rp.{{ str_replace(',', '.', number_format($product->harga, 2)) }},-</div>
-                        <div class="category">
-                            <p>Kitchen Set</p>
-                            <div class="selengkapnya">
-                                Selengkapnya
-                                <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M10 12L8.6 10.55L12.15 7H0V5H12.15L8.6 1.45L10 0L16 6L10 12Z" fill="url(#paint0_linear_125_133)" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_125_133" x1="8" y1="0" x2="8" y2="12" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#BEAAFF" />
-                                            <stop offset="1" stop-color="#4C3BCF" />
-                                        </linearGradient>
-                                    </defs>
+                        <div class="info">
+                            <div class="name">{{ $product->nama }}</div>
+                            <div class="brief">{{ $product->deskripsi }}</div>
+                            <div class="ratings">
+                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
+                                        fill="#4C3BCF" />
                                 </svg>
+                                <p class="number">{{ $product->rating }}</p>
+                            </div>
+                            <div class="price">Mulai dari Rp.{{ str_replace(',', '.', number_format($product->harga, 2)) }},-</div>
+                            <div class="category">
+                                <p>{{ $product->category }}</p>
+                                <div class="selengkapnya">
+                                    Selengkapnya
+                                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 12L8.6 10.55L12.15 7H0V5H12.15L8.6 1.45L10 0L16 6L10 12Z" fill="url(#paint0_linear_125_133)" />
+                                        <defs>
+                                            <linearGradient id="paint0_linear_125_133" x1="8" y1="0" x2="8" y2="12" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#BEAAFF" />
+                                                <stop offset="1" stop-color="#4C3BCF" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </a>
                 @php
-                    $i++;
+    $i++;
                 @endphp
                 @endforeach
             </div>
