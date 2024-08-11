@@ -1,66 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Tentang Dekorin
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Dekorin adalah platform e-commerce yang memungkinkan pengguna untuk memesan jasa vendor yang berkaitan dengan dekorasi rumah. Dengan Dekorin, pengguna dapat menemukan berbagai vendor yang menyediakan layanan dekorasi rumah seperti penataan furnitur, pencahayaan, dan dekorasi lainnya. Platform ini menyediakan berbagai pilihan desain dan gaya yang dapat disesuaikan dengan preferensi pengguna. Dekorin memberikan pengalaman yang mudah dan praktis dalam memesan jasa dekorasi rumah secara online.
 
-## About Laravel
+# Instalasi Aplikasi Dekorin
+Berikut adalah langkah-langkah untuk menginstal web Dekorin:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. Pastikan Anda memiliki PHP yang terinstal di komputer Anda. Anda dapat mengunduh PHP dari situs resmi PHP (https://www.php.net/downloads.php) dan mengikuti petunjuk instalasinya.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+2. Setelah PHP terinstal, buka terminal atau command prompt dan jalankan perintah berikut untuk memeriksa apakah PHP terinstal dengan benar:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+    ```
+    php -v
+    ```
 
-## Learning Laravel
+    Jika versi PHP ditampilkan, berarti PHP telah terinstal dengan sukses.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. Selanjutnya, Anda perlu menginstal Composer, manajer paket PHP. Unduh Composer dari situs resmi Composer (https://getcomposer.org/download/) dan ikuti petunjuk instalasinya.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+4. Setelah Composer terinstal, buka terminal atau command prompt dan jalankan perintah berikut untuk memeriksa apakah Composer terinstal dengan benar:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    ```
+    composer --version
+    ```
 
-## Laravel Sponsors
+    Jika versi Composer ditampilkan, berarti Composer telah terinstal dengan sukses.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+5. Jalankan perintah berikut untuk mengklon proyek Dekorin dari repositori Git:
 
-### Premium Partners
+    ```
+    git clone https://github.com/nrkahfirhmd/isc-diesco.git
+    ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+6. Masuk ke direktori proyek Dekorin:
 
-## Contributing
+    ```
+    cd isc-diesco
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7. Jalankan perintah berikut untuk menginstal semua dependensi menggunakan Composer:
 
-## Code of Conduct
+    ```
+    composer install
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+8. Sebelum melanjutkan, pastikan untuk mengatur file `.env` dengan konfigurasi yang sesuai. Anda dapat menyalin file `.env.example` menjadi `.env` dan mengeditnya sesuai dengan pengaturan lingkungan Anda.
 
-## Security Vulnerabilities
+9. Selanjutnya, untuk mengizinkan upload file besar, Anda perlu mengkonfigurasi `php.ini`. Buka file `php.ini` yang terletak di direktori instalasi PHP Anda dan cari pengaturan `upload_max_filesize` dan `post_max_size`. Ubah nilainya menjadi ukuran yang diinginkan, misalnya:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    ```
+    upload_max_filesize = 128M
+    post_max_size = 128M
+    ```
 
-## License
+    Simpan perubahan tersebut dan restart server PHP Anda.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+10. Setelah mengatur `.env` dan `php.ini`, lanjutkan dengan langkah-langkah berikutnya untuk menyelesaikan instalasi web Dekorin.
+
+11. Jalankan perintah berikut untuk melakukan migrasi database:
+
+    ```
+    php artisan migrate
+    ```
+
+12. Jalankan perintah berikut untuk melakukan seeding data awal:
+
+    ```
+    php artisan db:seed
+    ```
+
+13. Terakhir, jalankan perintah berikut untuk menjalankan server pengembangan Dekorin:
+
+    ```
+    php artisan serve
+    ```
+
+    Server pengembangan akan berjalan di http://localhost:8000.
+
+Selamat, Anda telah berhasil menginstal web Dekorin!
